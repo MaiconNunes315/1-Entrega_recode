@@ -1,0 +1,127 @@
+/* .color1 { #045ccc };
+.color2 { #90b8e6 };
+.color3 { #075cc4 };
+.color4 { #a4ad68 };
+.color5 { #FFDD7A }; */
+
+
+
+header {
+    background-color: #045ccc;
+}
+
+header img {
+    width: 50px;
+}
+
+.style_link_hover:hover {
+    opacity: .6;
+}
+
+.section_img {
+
+    width: 100%;
+    height: 33vw;
+    background-image: url("../images/backgorund.jpg");
+    background-position: inherit;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+}
+
+.folder_container {
+    height: 100%;
+}
+
+.folder_container h4,
+.folder_container p,
+.folder_container a {
+    display: none;
+}
+
+.info_container {
+    color: #FFDD7A;
+}
+
+.card_destiny {
+    height: 200px !important;
+    cursor: pointer;
+}
+
+.card_destiny:hover {
+    -webkit-box-shadow: 10px 10px 37px -12px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 10px 10px 37px -12px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 10px 37px -12px rgba(0, 0, 0, 0.75);
+}
+
+.btn_card_absolute {
+    top: 10px;
+    left: 10px;
+    padding: 0;
+}
+
+.btn_card_absolute p {
+    margin: 5px;
+}
+
+.card_sale {
+    cursor: pointer;
+    -webkit-box-shadow: 22px 22px 47px -15px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 22px 22px 47px -15px rgba(0, 0, 0, 0.75);
+    box-shadow: 22px 22px 47px -15px rgba(0, 0, 0, 0.75);
+    transition: .7s;
+
+}
+
+.card_sale:hover {
+    transform: translateY(-10px);
+}
+
+.card_list_sale {
+    list-style: url('../images/check.png');
+}
+
+.card_sale_price {
+    letter-spacing: -1px;
+    font-weight: 500;
+}
+
+
+
+@media screen and (min-width:992px) {
+    header {
+        background: transparent;
+    }
+
+    .section_img {
+        margin-top: -76px;
+        top: 0;
+        z-index: -1;
+    }
+
+    .folder_container h4,
+    .folder_container p,
+    .folder_container a {
+        display: block;
+    }
+
+    .folder_container h4 {
+        width: 38%;
+        font-family: 'Josefin Sans', sans-serif;
+        font-size: 1.7rem;
+        color: #045ccc;
+        text-shadow: 0px 2px 5px #fff;
+    }
+
+    .folder_container p {
+        width: 40%;
+        font-size: 0.8rem;
+        color: #fff;
+    }
+
+    .folder_container a {
+        width: 150px;
+    }
+
+
+}
