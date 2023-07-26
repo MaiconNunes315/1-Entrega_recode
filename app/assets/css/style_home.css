@@ -4,7 +4,9 @@
 .color4 { #a4ad68 };
 .color5 { #FFDD7A }; */
 
-
+p {
+    margin-bottom: 0.5rem !important;
+}
 
 header {
     background-color: #045ccc;
@@ -48,11 +50,6 @@ header img {
     cursor: pointer;
 }
 
-.card_destiny:hover {
-    -webkit-box-shadow: 10px 10px 37px -12px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 10px 10px 37px -12px rgba(0, 0, 0, 0.75);
-    box-shadow: 10px 10px 37px -12px rgba(0, 0, 0, 0.75);
-}
 
 .btn_card_absolute {
     top: 10px;
@@ -70,21 +67,38 @@ header img {
     -moz-box-shadow: 22px 22px 47px -15px rgba(0, 0, 0, 0.75);
     box-shadow: 22px 22px 47px -15px rgba(0, 0, 0, 0.75);
     transition: .7s;
-
 }
 
-.card_sale:hover {
+.card_sale:hover,
+.card_destiny:hover {
     transform: translateY(-10px);
+}
+
+.card_sales_img {
+    height: 190px;
+    overflow: hidden;
 }
 
 .card_list_sale {
     list-style: url('../images/check.png');
+    height: 115px;
 }
 
 .card_sale_price {
     letter-spacing: -1px;
     font-weight: 500;
 }
+
+.footer_link:hover {
+    color: #0d6efd !important;
+}
+
+footer {
+    -webkit-box-shadow: 0px -22px 78px -15px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px -22px 78px -15px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px -22px 20px -15px rgba(0, 0, 0, 0.24);
+}
+
 
 
 
