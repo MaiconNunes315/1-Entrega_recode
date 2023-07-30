@@ -19,10 +19,10 @@
     <!-- Classe com "_" substituindo "-" criado no css, não no bootstrap  -->
     <!-- Criando o cabeçalho -->
 
-    <header>
+    <header class="bg-primary">
         <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><img src="assets/images/logo.png" alt="logo va longe"></a>
+                <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="logo va longe"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
@@ -74,7 +74,7 @@
                                 Promoções</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link style_link_hover" href="#">
+                            <a class="nav-link style_link_hover" href="contact.html">
                                 <svg width="30px" height="30px" viewBox="0 0 24 24" version="1.1"
                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                     fill="#000000">
@@ -113,7 +113,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link style_link_hover" href="#">
+                            <a class="nav-link style_link_hover" href="destiny.html">
                                 <svg fill="#FFC107" width="30px" height="30px" viewBox="0 0 24.00 24.00"
                                     xmlns="http://www.w3.org/2000/svg" stroke="#FFC107"
                                     stroke-width="0.00024000000000000003">
@@ -141,7 +141,7 @@
     <!-- Fim do cabeçalho -->
     <section class="carousel_css">
 
-        <div id="carouselExampleIndicators" class="carousel slide">
+        <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
                     aria-current="true" aria-label="Slide 1"></button>
@@ -152,25 +152,16 @@
             </div>
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="..." class="d-block w-100" alt="...">
+                    <img src="assets/images/print.png" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="..." class="d-block w-100" alt="...">
+                    <img src="assets/images/print2.png" class="d-block w-100" alt="...">
                 </div>
                 <div class="carousel-item">
-                    <img src="..." class="d-block w-100" alt="...">
+                    <img src="assets/images/print3.png" class="d-block w-100" alt="...">
                 </div>
             </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
-                data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
+
         </div>
 
     </section>
@@ -195,9 +186,6 @@
 
             <div class="d-flex justify-content-between">
                 <h4>Promoções</h4>
-                <a class="link icon icon-link-hover text-decoration-none" href="sales.html">
-                    Ver mais
-                    <img class="img_link bi" aria-hidden="true" src="./assets/images/seta.png" alt=""></a>
             </div>
 
             <div class="mt-3 d-flex flex-wrap justify-content-evenly gap-5 ">
@@ -408,6 +396,210 @@
                     </div>
                 </div>
 
+                <div class="card position-relative card_sale" style="width: 18rem;">
+                    <div class="position-absolute d-flex flex-column btn_card_absolute">
+                        <p class="btn btn-primary">Pacotes Nacionais</p>
+                        <p class="btn btn-danger">-45%</p>
+                    </div>
+                    <div class="card_sales_img">
+
+                        <img src="assets/images/buzios.jpg" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Buzios</h5>
+                        <p class="card-text"><img class="me-1" width="22px" src="assets/images/mala.png"
+                                alt="icone mala"> 3 diárias
+                        </p>
+                        <ul class="card_list_sale">
+                            <li>Passagem aérea</li>
+                            <li>Hospedagem</li>
+                            <li>Café da manhã</li>
+                            <li>Saindo de São Paulo</li>
+                        </ul>
+
+                        <div>
+                            <span>
+                                <s>de R$ 1101,00</s>
+                            </span>
+
+                            <div><small>por</small>
+                                <span class="fs-3 card_sale_price text-warning">R$ 605,55</span>
+                            </div>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card position-relative card_sale" style="width: 18rem;">
+                    <div class="position-absolute d-flex flex-column btn_card_absolute">
+                        <p class="btn btn-primary">Pacotes Nacionais</p>
+                        <p class="btn btn-danger">-35%</p>
+                    </div>
+                    <div class="card_sales_img">
+
+                        <img src="assets/images/ubatuba.jpg" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Ubatuba</h5>
+                        <p class="card-text"><img class="me-1" width="22px" src="assets/images/mala.png"
+                                alt="icone mala"> 4 diárias
+                        </p>
+                        <ul class="card_list_sale">
+
+                            <li>Hospedagem</li>
+                            <li>Café da manhã</li>
+
+                        </ul>
+
+                        <div>
+                            <span>
+                                <s>de R$ 1350,20 </s>
+                            </span>
+
+                            <div><small>por</small>
+                                <span class="fs-3 card_sale_price text-warning">R$ 877,50</span>
+                            </div>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card position-relative card_sale" style="width: 18rem;">
+                    <div class="position-absolute d-flex flex-column btn_card_absolute">
+                        <p class="btn btn-primary">Pacotes Nacionais</p>
+                        <p class="btn btn-danger">-15%</p>
+                    </div>
+                    <div class="card_sales_img">
+
+                        <img src="assets/images/caldas-novas.jpg" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Caldas Novas</h5>
+                        <p class="card-text"><img class="me-1" width="22px" src="assets/images/mala.png"
+                                alt="icone mala"> 5 diárias
+                        </p>
+                        <ul class="card_list_sale">
+                            <li>Passagem aérea</li>
+                            <li>Hospedagem</li>
+                            <li>Café da manhã</li>
+                            <li>Saindo de Rio de Janeiro</li>
+                        </ul>
+
+                        <div>
+                            <span>
+                                <s>de R$ 1854,00</s>
+                            </span>
+
+                            <div><small>por</small>
+                                <span class="fs-3 card_sale_price text-warning">R$ 1575,80</span>
+                            </div>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card position-relative card_sale" style="width: 18rem;">
+                    <div class="position-absolute d-flex flex-column btn_card_absolute">
+                        <p class="btn btn-primary">Pacotes Internacionais</p>
+                        <p class="btn btn-danger">-5%</p>
+                    </div>
+                    <div class="card_sales_img">
+
+                        <img src="assets/images/bariloche.png" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Bariloche</h5>
+                        <p class="card-text"><img class="me-1" width="22px" src="assets/images/mala.png"
+                                alt="icone mala"> 5 diárias
+                        </p>
+                        <ul class="card_list_sale">
+                            <li>Passagem aérea</li>
+                            <li>Hospedagem</li>
+                            <li>Saindo de São Paulo</li>
+                        </ul>
+
+                        <div>
+                            <span>
+                                <s>de R$ 2400,00</s>
+                            </span>
+
+                            <div><small>por</small>
+                                <span class="fs-3 card_sale_price text-warning">R$ 2280,00</span>
+                            </div>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card position-relative card_sale" style="width: 18rem;">
+                    <div class="position-absolute d-flex flex-column btn_card_absolute">
+                        <p class="btn btn-primary">Pacotes Internacionais</p>
+                        <p class="btn btn-danger">-15%</p>
+                    </div>
+                    <div class="card_sales_img">
+
+                        <img src="assets/images/ibiza.png" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">Ibiza</h5>
+                        <p class="card-text"><img class="me-1" width="22px" src="assets/images/mala.png"
+                                alt="icone mala"> 6 diárias
+                        </p>
+                        <ul class="card_list_sale">
+                            <li>Passagem aérea</li>
+                            <li>Hospedagem</li>
+                            <li>Café da manhã</li>
+                            <li>Open bar</li>
+                            <li>Saindo de Rio de Janeiro</li>
+                        </ul>
+
+                        <div>
+                            <span>
+                                <s>de R$ 11.550,00</s>
+                            </span>
+
+                            <div><small>por</small>
+                                <span class="fs-3 card_sale_price text-warning">R$ 9817,50</span>
+                            </div>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card position-relative card_sale" style="width: 18rem;">
+                    <div class="position-absolute d-flex flex-column btn_card_absolute">
+                        <p class="btn btn-primary">Pacotes Nacionais</p>
+                        <p class="btn btn-danger">-7%</p>
+                    </div>
+                    <div class="card_sales_img">
+
+                        <img src="assets/images/joao-pessoa.jpg" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">João Pessoa</h5>
+                        <p class="card-text"><img class="me-1" width="22px" src="assets/images/mala.png"
+                                alt="icone mala"> 3 diárias
+                        </p>
+                        <ul class="card_list_sale">
+                            <li>Passagem aérea</li>
+                            <li>Hospedagem</li>
+                            <li>Café da manhã</li>
+                            <li>Saindo de Salvador</li>
+                        </ul>
+
+                        <div>
+                            <span>
+                                <s>de R$ 2850,00</s>
+                            </span>
+
+                            <div><small>por</small>
+                                <span class="fs-3 card_sale_price text-warning">R$ 2650,50</span>
+                            </div>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
         </section>
@@ -415,7 +607,7 @@
 
     <!-- Rodapé -->
 
-    <footer class="py-5">
+    <footer class="py-5 d-flex flex-column align-items-center">
         <div class="container d-flex justify-content-center flex-wrap gap-5">
 
             <div>
@@ -427,6 +619,7 @@
 
                 <p>SAC 21 2222-2222</p>
                 <p>Atendimento Seg. a Sex: 09h às 19h</p>
+                <p>CNPJ: 42.047.067/0001-21</p>
             </div>
 
             <div>
@@ -437,9 +630,9 @@
 
             <div>
                 <h4>Viaje com a gente</h4>
-                <p> <a href="sales.html" class="text-decoration-none text-dark footer_link" href="#">Promoção</a> </p>
-                <p> <a class="text-decoration-none text-dark footer_link" href="#">Destinos</a> </p>
-                <p> <a class="text-decoration-none text-dark footer_link" href="#">Fale conosco</a> </p>
+                <p> <a href="sales.html" class="text-decoration-none text-dark footer_link">Promoção</a> </p>
+                <p> <a class="text-decoration-none text-dark footer_link" href="destiny.html">Destinos</a> </p>
+                <p> <a class="text-decoration-none text-dark footer_link" href="contact.html">Fale conosco</a> </p>
             </div>
 
             <div>
@@ -457,6 +650,13 @@
                     <img src="assets/images/youtube.png" alt="icone youtube">
                 </a>
             </div>
+        </div>
+        <div class="">
+            Feito por:
+            <a class="text-decoration-none text-dark" href="https://www.linkedin.com/in/maicon-nunes/" target="_blank">
+                Maicon Nunes
+                <img width="40px" src="assets/images/linkedin.png" alt="icone linkedin">
+            </a>
         </div>
     </footer>
 

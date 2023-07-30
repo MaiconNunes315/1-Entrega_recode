@@ -10,6 +10,7 @@ p {
 
 header {
     background-color: #045ccc;
+
 }
 
 header img {
@@ -74,9 +75,9 @@ header img {
     transform: translateY(-10px);
 }
 
-.card_sales_img {
+.card_sales_img img {
     height: 190px;
-    overflow: hidden;
+
 }
 
 .card_list_sale {
