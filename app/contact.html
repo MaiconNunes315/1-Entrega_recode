@@ -15,12 +15,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
 </head>
 
-<body>
+<body class="position-relative">
     <!-- Classe com "_" substituindo "-" criado no css, não no bootstrap  -->
     <!-- Criando o cabeçalho -->
 
     <header>
-        <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
+        <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="logo va longe"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -140,8 +140,72 @@
 
     <!-- Fim do cabeçalho -->
 
-    <section class="container">
+    <section class="container py-5 ">
+        <form class="row g-3">
+            <div class="col-md-6">
+                <label for="inputEmail4" class="form-label">Email</label>
+                <input type="email" class="form-control" required placeholder="Digite seu email" id="inputEmail4">
+            </div>
+            <div class="col-md-6">
+                <label for="inputPassword4" class="form-label">Nome Completo</label>
+                <input type="text" class="form-control" required placeholder="Digite seu nome completo"
+                    id="inputPassword4">
+            </div>
+            <div class="col-12">
+                <label for="inputAddress" class="form-label">Endereço</label>
+                <input type="text" class="form-control" id="inputAddress" required
+                    placeholder="Nome da rua e o numero da casa">
+            </div>
+            <div class="col-12">
+                <label for="inputAddress2" class="form-label">Complemento</label>
+                <input type="text" class="form-control" id="inputAddress2" placeholder="Apartamento, casa1, lote, etc.">
+            </div>
+            <div class="col-md-6">
+                <label for="inputCity" class="form-label">Cidade</label>
+                <input type="text" class="form-control" id="inputCity" required placeholder="Digite a cidade">
+            </div>
+            <div class="col-md-4">
+                <label for="inputState" class="form-label">Estado</label>
+                <select id="inputState" class="form-select">
+                    <option selected>Acre</option>
+                    <option>Alagoas</option>
+                    <option>Amapá</option>
+                    <option>Amazonas</option>
+                    <option>Bahia</option>
+                    <option>Brasilia</option>
+                    <option>Ceará</option>
+                    <option>Espírito Santo</option>
+                    <option>Goiás</option>
+                    <option>Maranhão</option>
+                    <option>Mato Grosso</option>
+                    <option>Mato Grosso do Sul</option>
+                    <option>Minas Gerais</option>
+                    <option>Pará</option>
+                    <option>Paraíba</option>
+                    <option>Paraná</option>
+                    <option>Pernambuco</option>
+                    <option>Piauí</option>
+                    <option>Rio de Janeiro</option>
+                    <option>Rio Grande do Norte</option>
+                    <option>Rio Grande do Sul</option>
+                    <option>Rondônia</option>
+                    <option>Roraima</option>
+                    <option>Santa Catarina</option>
+                    <option>São Paulo</option>
+                    <option>São Paulo</option>
+                    <option>Tocantins</option>
 
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="inputZip" class="form-label">CEP</label>
+                <input type="text" class="form-control" placeholder="Digite seu CEP" id="inputZip">
+            </div>
+
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Enviar mensagem</button>
+            </div>
+        </form>
     </section>
 
     <!-- Rodapé -->
