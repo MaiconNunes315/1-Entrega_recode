@@ -5,9 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vá longe - Transformando sua viagem em uma experiência incrivel</title>
-    <link rel="stylesheet" href="assets/css/style_destiny.css">
-    <link rel="stylesheet" href="assets/css/style_sales.css">
     <link rel="stylesheet" href="assets/css/style_home.css">
+    <link rel="stylesheet" href="assets/css/style_contact.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
     <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon">
@@ -20,7 +19,7 @@
     <!-- Classe com "_" substituindo "-" criado no css, não no bootstrap  -->
     <!-- Criando o cabeçalho -->
 
-    <header class="bg-primary">
+    <header>
         <nav class="navbar navbar-expand-lg" data-bs-theme="dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html"><img src="assets/images/logo.png" alt="logo va longe"></a>
@@ -75,7 +74,7 @@
                                 Promoções</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link style_link_hover" href="contact.html">
+                            <a class="nav-link style_link_hover active" href="contact.html">
                                 <svg width="30px" height="30px" viewBox="0 0 24 24" version="1.1"
                                     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                     fill="#000000">
@@ -114,7 +113,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link style_link_hover active" href="#">
+                            <a class="nav-link style_link_hover" href="destiny.html">
                                 <svg fill="#FFC107" width="30px" height="30px" viewBox="0 0 24.00 24.00"
                                     xmlns="http://www.w3.org/2000/svg" stroke="#FFC107"
                                     stroke-width="0.00024000000000000003">
@@ -140,178 +139,10 @@
     </header>
 
     <!-- Fim do cabeçalho -->
-    <main class="container">
 
-        <!-- container das informações -->
+    <section class="container">
 
-        <section class="d-flex justify-content-around flex-wrap info_container p-3">
-            <span class=""><img class="pe-2" src="assets/images/aviao.png" alt="icone aviao" />Viagens para qualquer
-                lugar do mundo</span>
-            <span><img class="pe-2" src="assets/images/carteira.png" alt="icone carteira">Parcelamento em até 12x sem
-                juros</span>
-            <span><img class="pe-2" src="assets/images/seguranca.png" alt="icone de cartão com cadeado">Sua compra
-                totalmente
-                segura</span>
-        </section>
-
-
-        <div class="text-center">
-            <h2 class="text-warning m-3">Destinos Nacionais</h2>
-
-            <div class="d-flex justify-content-center gap-3 flex-column align-items-center flex-lg-row">
-
-                <div class="img_left">
-                    <img class="w-100 rounded" src="assets/images/maceio.jpeg" alt="foto maceió">
-                    <h4 class="text-warning">Maceió</h4>
-                </div>
-
-                <div class="d-flex justify-content-center flex-wrap gap-3 container_img_right">
-                    <div class="img_right">
-                        <img class="w-100 rounded" src="assets/images/bauneario.jpg" alt="foto bauneario" />
-                        <h4 class="text-warning">Bauneário </h4>
-                    </div>
-                    <div class="img_right">
-                        <img class="w-100 rounded" src="assets/images/buzios.jpg" alt="foto buzios">
-                        <h4 class="text-warning">Búzios</h4>
-                    </div>
-                    <div class="img_right">
-                        <img class="w-100 rounded" src="assets/images/caldas-novas.jpg" alt="foto caldas novas">
-                        <h4 class="text-warning">Caldas Novas</h4>
-                    </div>
-                    <div class="img_right">
-                        <img class="w-100 rounded" src="assets/images/joao-pessoa.jpg" alt="foto joao pessoa">
-                        <h4 class="text-warning">João Pessoa</h4>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="my-4 d-flex justify-content-evenly flex-wrap gap-2">
-
-            <div class="card position-relative overflow-hidden " style="width: 18rem;">
-
-                <img width="100%" height="100%" src="assets/images/rj.jpg" class="position-absolute" alt="...">
-                <div class="z-1 d-flex h-100 flex-column justify-content-end align-items-center mb-3">
-                    <p class="text-warning mb-0">PACOTES PARA</p>
-                    <h3 class="text-white fs-1">Rio de Janeiro</h3>
-                    <a href="#" class="btn btn-warning text-white">Conferir</a>
-                </div>
-            </div>
-
-            <div class="card position-relative overflow-hidden " style="width: 18rem;">
-
-                <img width="100%" height="100%" src="assets/images/porto-seguro.jpg" class="position-absolute"
-                    alt="...">
-                <div class="z-1 d-flex h-100 flex-column justify-content-end align-items-center mb-3">
-                    <p class="text-warning mb-0">PACOTES PARA</p>
-                    <h3 class="text-white fs-1">Porto Seguro</h3>
-                    <a href="#" class="btn btn-warning text-white">Conferir</a>
-                </div>
-            </div>
-
-            <div class="card position-relative overflow-hidden " style="width: 18rem;">
-
-                <img width="100%" height="100%" src="assets/images/gramado.jpg" class="position-absolute" alt="...">
-                <div class="z-1 d-flex h-100 flex-column justify-content-end align-items-center mb-3">
-                    <p class="text-warning mb-0">PACOTES PARA</p>
-                    <h3 class="text-white fs-1">Gramado</h3>
-                    <a href="#" class="btn btn-warning text-white">Conferir</a>
-                </div>
-            </div>
-
-            <div class="card position-relative overflow-hidden " style="width: 18rem;">
-
-                <img width="100%" height="100%" src="assets/images/recife.jpg" class="position-absolute" alt="...">
-                <div class="z-1 d-flex h-100 flex-column justify-content-end align-items-center mb-3">
-                    <p class="text-warning mb-0">PACOTES PARA</p>
-                    <h3 class="text-white fs-1">Recife</h3>
-                    <a href="#" class="btn btn-warning text-white">Conferir</a>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="text-center mb-5">
-            <h2 class="text-warning m-3">Destinos Internacionais</h2>
-
-            <div class="d-flex justify-content-center gap-3 flex-column align-items-center flex-lg-row">
-
-                <div class="img_left">
-                    <img class="w-100 rounded" src="assets/images/lisboa.jpg" alt="foto Lisboa">
-                    <h4 class="text-warning">Lisboa</h4>
-                </div>
-
-                <div class="d-flex justify-content-center flex-wrap gap-3 container_img_right">
-                    <div class="img_right">
-                        <img class="w-100 rounded" src="assets/images/bariloche.png" alt="foto bariloche" />
-                        <h4 class="text-warning">Bariloche </h4>
-                    </div>
-                    <div class="img_right">
-                        <img class="w-100 rounded" src="assets/images/cancun.jpg" alt="foto cancun">
-                        <h4 class="text-warning">Cancún</h4>
-                    </div>
-                    <div class="img_right">
-                        <img class="w-100 rounded" src="assets/images/dubai.jpg" alt="foto Dubai">
-                        <h4 class="text-warning">Dubai</h4>
-                    </div>
-                    <div class="img_right">
-                        <img class="w-100 rounded" src="assets/images/ibiza.png" alt="foto Ibiza">
-                        <h4 class="text-warning">Ibiza</h4>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="my-4 d-flex justify-content-evenly flex-wrap gap-2">
-
-                <div class="card position-relative overflow-hidden " style="width: 18rem;">
-
-                    <img width="100%" height="100%" src="assets/images/aruba.jpeg" class="position-absolute" alt="...">
-                    <div class="z-1 d-flex h-100 flex-column justify-content-end align-items-center mb-3">
-                        <p class="text-warning mb-0">PACOTES PARA</p>
-                        <h3 class="text-white fs-1">Aruba</h3>
-                        <a href="#" class="btn btn-warning text-white">Conferir</a>
-                    </div>
-                </div>
-
-                <div class="card position-relative overflow-hidden " style="width: 18rem;">
-
-                    <img width="100%" height="100%" src="assets/images/orlando.jpg" class="position-absolute" alt="...">
-                    <div class="z-1 d-flex h-100 flex-column justify-content-end align-items-center mb-3">
-                        <p class="text-warning mb-0">PACOTES PARA</p>
-                        <h3 class="text-white fs-1">Orlando</h3>
-                        <a href="#" class="btn btn-warning text-white">Conferir</a>
-                    </div>
-                </div>
-
-                <div class="card position-relative overflow-hidden " style="width: 18rem;">
-
-                    <img width="100%" height="100%" src="assets/images/paris.jpg" class="position-absolute" alt="...">
-                    <div class="z-1 d-flex h-100 flex-column justify-content-end align-items-center mb-3">
-                        <p class="text-warning mb-0">PACOTES PARA</p>
-                        <h3 class="text-white fs-1">Paris</h3>
-                        <a href="#" class="btn btn-warning text-white">Conferir</a>
-                    </div>
-                </div>
-
-                <div class="card position-relative overflow-hidden " style="width: 18rem;">
-
-                    <img width="100%" height="100%" src="assets/images/roma.jpg" class="position-absolute" alt="...">
-                    <div class="z-1 d-flex h-100 flex-column justify-content-end align-items-center mb-3">
-                        <p class="text-warning mb-0">PACOTES PARA</p>
-                        <h3 class="text-white fs-1">Roma</h3>
-                        <a href="#" class="btn btn-warning text-white">Conferir</a>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-
-    </main>
-
+    </section>
 
     <!-- Rodapé -->
 
@@ -339,8 +170,8 @@
             <div>
                 <h4>Viaje com a gente</h4>
                 <p> <a href="sales.html" class="text-decoration-none text-dark footer_link">Promoção</a> </p>
-                <p> <a class="text-decoration-none text-dark footer_link" href="destiny.html">Destinos</a> </p>
-                <p> <a class="text-decoration-none text-dark footer_link" href="contact.html">Fale conosco</a> </p>
+                <p> <a href="destiny.html" class="text-decoration-none text-dark footer_link">Destinos</a> </p>
+                <p> <a href="contact.html" class="text-decoration-none text-dark footer_link">Fale conosco</a> </p>
             </div>
 
             <div>
