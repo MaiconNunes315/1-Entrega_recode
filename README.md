@@ -43,7 +43,7 @@ git clone https://github.com/MaiconNunes315/1-Entrega_recode
 ~~~ 
 
 
-5. Acesse a aplicação no seu navegador [clicando aqui]()
+5. Acesse a aplicação no seu navegador [clicando aqui](https://1-entrega-recode.vercel.app/)
 
 Tecnologias Utilizadas
  * HTML
