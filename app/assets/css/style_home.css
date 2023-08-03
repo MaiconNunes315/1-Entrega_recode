@@ -18,28 +18,39 @@ header img {
 }
 
 .style_link_hover:hover {
-    opacity: .6;
+
+    background-color: #045ccc;
+    border-radius: 5px;
 }
 
 .section_img {
 
     width: 100%;
-    height: 33vw;
-    background-image: url("../images/backgorund.jpg");
-    background-position: inherit;
-    background-size: contain;
+    height: 60vw;
+    min-height: 280px;
+    background-image: url("../images/Banner1.jpg");
+    background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
 
 }
 
-.folder_container {
-    height: 100%;
+.folder_container>div {
+    height: 45vw;
+    width: 100%;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #FFf;
 }
 
-.folder_container h4,
-.folder_container p,
+.folder_container h4 {
+    width: 70%;
+    font-size: 1rem;
+    color: #045ccc;
+}
+
+
 .folder_container a {
-    display: none;
+    width: 30%;
 }
 
 .info_container {
@@ -100,7 +111,14 @@ footer {
     box-shadow: 0px -22px 20px -15px rgba(0, 0, 0, 0.24);
 }
 
-
+.card-info-trip {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: auto;
+    gap: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+}
 
 
 @media screen and (min-width:992px) {
@@ -114,24 +132,44 @@ footer {
         z-index: -1;
     }
 
-    .folder_container h4,
-    .folder_container p,
-    .folder_container a {
-        display: block;
+    .card-info-trip {
+        width: 378px;
+        height: 266px;
+        overflow: hidden;
+        max-width: none;
+        margin: 0;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        -webkit-box-shadow: 22px 22px 47px -15px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 22px 22px 47px -15px rgba(0, 0, 0, 0.75);
+        box-shadow: 22px 22px 47px -15px rgba(0, 0, 0, 0.75);
+        transition: all .8s;
+        border-radius: 15px;
+        color: #80879b;
+
     }
 
-    .folder_container h4 {
-        width: 38%;
-        font-family: 'Josefin Sans', sans-serif;
-        font-size: 1.7rem;
-        color: #045ccc;
-        text-shadow: 0px 2px 5px #fff;
+    .card-info-trip:nth-child(2n) {
+        align-self: flex-end;
+        flex-direction: row-reverse;
     }
 
-    .folder_container p {
-        width: 40%;
-        font-size: 0.8rem;
-        color: #fff;
+    .card-info-trip:hover {
+        width: 100%;
+        padding: 0 15px;
+        height: calc(266px + 50px);
+
+    }
+
+    .card-info-trip>div {
+        width: 50%;
+    }
+
+
+    .folder_container>div {
+        width: 50%;
+
     }
 
     .folder_container a {
