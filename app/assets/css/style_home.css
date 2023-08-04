@@ -40,17 +40,20 @@ header img {
     width: 100%;
     font-family: 'Josefin Sans', sans-serif;
     color: #FFf;
+
 }
 
 .folder_container h4 {
     width: 70%;
     font-size: 1rem;
     color: #045ccc;
+    display: none;
 }
 
 
 .folder_container a {
-    width: 30%;
+    width: 50%;
+    max-width: 200px;
 }
 
 .info_container {
@@ -118,6 +121,7 @@ footer {
     margin: auto;
     gap: 10px;
     font-family: 'Josefin Sans', sans-serif;
+    color: #80879b;
 }
 
 
@@ -130,6 +134,13 @@ footer {
         margin-top: -76px;
         top: 0;
         z-index: -1;
+    }
+
+    .folder_container h4 {
+        width: 70%;
+        font-size: 1rem;
+        color: #045ccc;
+        display: block;
     }
 
     .card-info-trip {
@@ -146,7 +157,7 @@ footer {
         box-shadow: 22px 22px 47px -15px rgba(0, 0, 0, 0.75);
         transition: all .8s;
         border-radius: 15px;
-        color: #80879b;
+
 
     }
 
