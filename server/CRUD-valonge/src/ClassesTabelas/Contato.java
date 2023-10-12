@@ -1,11 +1,12 @@
 package ClassesTabelas;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Contato {
 	private int id;
 	private String email,mensagem, telefone,nome;
-	private Date data;
+	private LocalDateTime data;
 	
 	public int getId() {
 		return id;
@@ -37,11 +38,17 @@ public class Contato {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public Date getData() {
+	public LocalDateTime getData() {
 		return data;
 	}
-	public void setData(Date data) {
+	public void setData(LocalDateTime data) {
 		this.data = data;
 	}
+	@Override
+	public String toString() {
+		return "id: " + id + ", email: " + email + ", mensagem: " + mensagem + ", telefone: " + telefone
+				+ ", nome: " + nome + ", data: " + data;
+	}
+	
 	
 }

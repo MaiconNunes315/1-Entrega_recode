@@ -97,7 +97,7 @@ public class Usuario {
 	}
 	
 	public String formatarData(LocalDateTime data) {
-		DateTimeFormatter formatoData =  DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");		
+		DateTimeFormatter formatoData =  DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");		
 		return data.format(formatoData);
 	}
 	

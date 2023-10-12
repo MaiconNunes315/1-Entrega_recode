@@ -1,23 +1,14 @@
-package TableasDAO;
+package TabelasDAO;
 
 import java.sql.Connection;
-import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
-import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Scanner;
-
-import com.mysql.cj.protocol.a.LocalDateTimeValueEncoder;
-
 import ClassesTabelas.Usuario;
 import Conexao.Conexao;
 
-public class UsuarioDao {
+public class UsuarioDAO {
 
 	private String sql;
 	private Connection conexao;
@@ -176,9 +167,10 @@ public class UsuarioDao {
 				}
 				default:{
 					System.out.println("Opção incorreta");
+					break;
 				}
 				}
-
+				System.out.println("Usuário " + usuario.getNome() + " atualizado com sucesso");
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
@@ -193,7 +185,8 @@ public class UsuarioDao {
 
 			pstm.setInt(1, id);
 			pstm.execute();
-
+			
+			System.out.println("Usuário deletado com sucesso");
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}

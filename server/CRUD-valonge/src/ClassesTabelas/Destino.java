@@ -2,8 +2,8 @@ package ClassesTabelas;
 
 public class Destino {
 	private int id_destino;
-	private String detalhes, estado, img, regiao, pais, cidade;
-	private boolean possuiPromocao;
+	private String detalhes, estado, img, pais, cidade;
+
 	public int getId_destino() {
 		return id_destino;
 	}
@@ -28,12 +28,7 @@ public class Destino {
 	public void setImg(String img) {
 		this.img = img;
 	}
-	public String getRegiao() {
-		return regiao;
-	}
-	public void setRegiao(String regiao) {
-		this.regiao = regiao;
-	}
+	
 	public String getPais() {
 		return pais;
 	}
@@ -46,11 +41,11 @@ public class Destino {
 	public void setCidade(String cidade) {
 		this.cidade = cidade;
 	}
-	public boolean isPossuiPromocao() {
-		return possuiPromocao;
-	}
-	public void setPossuiPromocao(boolean possuiPromocao) {
-		this.possuiPromocao = possuiPromocao;
+	
+	@Override
+	public String toString() {
+		return "id_destino: " + id_destino + ", detalhes: " + detalhes
+				+ ", estado: " + estado + ", img: " + img + ", pais: " + pais + ", cidade: " + cidade;
 	}
 	
 	
