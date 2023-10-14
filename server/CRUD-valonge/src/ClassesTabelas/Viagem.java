@@ -71,20 +71,22 @@ public class Viagem {
 	
 public double calculaPrecoTotal() {
 		
-		int qtDias = (int) this.dataEntrada.until(this.dataSaida, ChronoUnit.DAYS);
-		double precoHospedagem = qtDias * this.hospedagem.getPrecoDiaria();
-		
 		double novoDesconto =(double) this.desconto/100;
 		
 		if(this.hospedagem.getPrecoDiaria() != 0) {
-		if(novoDesconto == 0) {
+			
+			int qtDias = (int) this.dataEntrada.until(this.dataSaida, ChronoUnit.DAYS);
+			double precoHospedagem = qtDias * this.hospedagem.getPrecoDiaria();
+			
+		if(this.desconto == 0) {
 			return precoHospedagem + this.preco;
 		}else {
 			double valorDesconto = (precoHospedagem + this.preco) * novoDesconto;
 			return  precoHospedagem - valorDesconto ;
 		}
+		
 		}else {
-			if(novoDesconto == 0) {
+			if(this.desconto == 0) {
 				return this.preco;
 			}else {
 				double valorDesconto = this.preco * novoDesconto;
@@ -99,7 +101,7 @@ public double calculaPrecoTotal() {
 		return "id_viagem: " + id_viagem + ", desconto: " + (desconto == 0 ? "Não possui desconto" : desconto +"%")   + ", observacoes: " + observacoes
 				+  ",\n nome do usuário: " + usuario.getNome() 
 				+ ",  saindo de: " + usuario.getEstado() + ", para " + destino.getCidade() + ", data ida: " + usuario.formatarData(dataEntrada) 
-				+ ",\n data volta: " + usuario.formatarData(dataSaida);
+				+ ",\n data volta: " + usuario.formatarData(dataSaida) + ", sub total: " + preco + ", total: " + calculaPrecoTotal();
 	}
 	
 	

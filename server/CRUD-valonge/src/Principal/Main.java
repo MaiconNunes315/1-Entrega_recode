@@ -1,52 +1,73 @@
 package Principal;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.Scanner;
 
 import ClassesTabelas.Contato;
 import ClassesTabelas.Destino;
+import ClassesTabelas.Hospedagem;
 import ClassesTabelas.Usuario;
 import ClassesTabelas.Viagem;
+
+import Menu.SubMenu;
 import TabelasDAO.ContatoDAO;
 import TabelasDAO.DestinoDAO;
+import TabelasDAO.HospedagemDAO;
 import TabelasDAO.UsuarioDAO;
 import TabelasDAO.ViagemDAO;
 
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-	Usuario usuario = new Usuario();
-//
-	usuario.setId(4);
-// usuario.setNome("Marli Nunes");
-//	usuario.setRg("222222775");
-//	usuario.setEndereco("Rua 10 lt 21 qd 70");
-//	usuario.setCpf("25465542122");
-//	usuario.setDataNascimento(LocalDate.of(1995,05,29));
-//	usuario.setTelefone("2199999999");
-//	usuario.setCriado_em(LocalDateTime.now());
-//	usuario.setEmail("mnunes315@gmail.com");
-//	usuario.setEstado("Rio de Janeiro");
-//	usuario.setModificado_em(LocalDateTime.now());
-//	usuario.setSenha("987654321");
-//	usuario.setTipoUsuario("user");
-//	
-	UsuarioDAO novoUsuario = new UsuarioDAO();
-	//novoUsuario.criarUsuario(usuario);
+	
+		Scanner input = new Scanner(System.in);
+		
+		// corrigir o sub menu
+		
+		
+		int menuNumber = 1;
+		
+		while(menuNumber != 0) {
+			System.out.println("----- Bem vindo ao nosso sistema de viagens 'Válonge' ----- ");
+			System.out.println(" Digite 1 para inserir dados");
+			System.out.println(" Digite 2 para leitura de  dados");
+			System.out.println(" Digite 3 para atualizar dados");
+			System.out.println(" Digite 4 para deletar dados");
+			System.out.println(" Digite 5 para filtar dados através do id");
+			
+			menuNumber = input.nextInt();
+			
+			switch (menuNumber) {
+			case 1: 
+				SubMenu inserir = new SubMenu();
+				inserir.insert();
+				break;
+			default:
+				throw new IllegalArgumentException("Unexpected value: " + menuNumber);
+			}
+			
+			
+		}
+		
+		
+
+	
+
 		//novoUsuario.buscarUsuarios(3);
 	//novoUsuario.detelarUsuario(1);
 	//novoUsuario.atualizarUsuario(usuario, 3, "nome");	
-	Destino destino = new Destino();
-//	destino.setCidade("Angra dos Reis");
+//	Destino destino = new Destino();
+//	destino.setCidade("Rio de Janeiro");
 //	destino.setDetalhes("O rio de janeiro continua lindo, o rio de janeiro continua sendo");
-//	destino.setEstado("Alagoas");
-	destino.setId_destino(3);
+//	destino.setEstado("Rio de Janeiro");
+//	destino.setId_destino(2);
 //	destino.setImg("https://brazilexpedition.com/wp-content/uploads/2021/09/Lagoa-Azul3-625x430.jpg");
 //	destino.setPais("Brasil");
-//	destino.setPossuiPromocao(0);
+
 //	
 //	DestinoDAO novoDestino = new DestinoDAO();
-	//novoDestino.createDestino(destino);
+//	novoDestino.createDestino(destino);
 	//novoDestino.searchDestino(1);
 	//novoDestino.updateDestino(destino, 1, "estado");
 	//novoDestino.deteteDestino(1);
@@ -65,7 +86,7 @@ public class Main {
 	//contatodao.searchContato(1);
 	//contatodao.updateContato(contato, 1, "nome");
 	//contatodao.deteteContato(1);
-//	Viagem viagem = new Viagem();
+//		Viagem viagem = new Viagem();
 //		viagem.setDataEntrada(LocalDateTime.of(2023, 11, 20, 01, 00));
 //		viagem.setDataSaida(LocalDateTime.of(2023, 12, 05, 01, 00));
 //		viagem.setDesconto(20);
@@ -75,13 +96,28 @@ public class Main {
 //		
 //		System.out.println("data ida" + viagem.formatarData(viagem.getDataEntrada()) + "volta " + viagem.formatarData(viagem.getDataSaida()));
 //		
-	//	ViagemDAO viagemdao = new ViagemDAO();
-		
-		//viagemdao.createViagem(viagem, usuario, destino);
+//		ViagemDAO viagemdao = new ViagemDAO();
+//		
+//		viagemdao.createViagem(viagem, usuario, destino);
 		//viagemdao.readViagem();
 		//viagemdao.searchViagem(3);
 		//viagemdao.updateViagem(viagem, 3, "id_usuario");
 		//viagemdao.deteteViagem(4);
-			}
+	
+//	Hospedagem hospedagem = new Hospedagem();
+//	hospedagem.setId(1);
+//	hospedagem.setEndereco("Av. Atlântica, 1702 - Copacabana");
+//	hospedagem.setNomeLocal("Copacabana Palace");
+//	hospedagem.setPrecoDiaria(3250.00);
+//	hospedagem.setDestino(destino);
+	
+	//HospedagemDAO h = new HospedagemDAO();
+	//h.createHospedagem(hospedagem);
+	//h.readHospedagem();
+	//h.searchHospedagem(1);
+	//h.updateHospedagem(hospedagem, 1, "precoDiaria");
+	//h.deteteHospedagem(1);
+	
+	}
 
 }

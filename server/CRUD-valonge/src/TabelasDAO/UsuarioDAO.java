@@ -14,7 +14,7 @@ public class UsuarioDAO {
 	private Connection conexao;
 
 	// Criando Usuário para o banco de dados
-	public void criarUsuario(Usuario usuario) {
+	public void creatUsuario(Usuario usuario) {
 		conexao = Conexao.conectar();
 		sql = "INSERT INTO usuario (nome, rg, endereco, cpf, estado, "
 				+ "dataNascimento, telefone, criado_em, modificado_em, senha, "
@@ -43,7 +43,7 @@ public class UsuarioDAO {
 	}
 
 	// Listando usuarios do banco de dados
-	public void mostrarUsuarios() {
+	public void readUsuarios() {
 		conexao = Conexao.conectar();
 		sql = "SELECT * FROM usuario";
 		ResultSet rset = null;
@@ -74,7 +74,7 @@ public class UsuarioDAO {
 		}
 	}
 	//buscar usuario através do id
-	public void buscarUsuarios(int id) {
+	public void searchUsuarios(int id) {
 		conexao = Conexao.conectar();
 		sql = "SELECT * FROM usuario WHERE id = " + id;
 		ResultSet rset = null;
@@ -106,7 +106,7 @@ public class UsuarioDAO {
 	}
 
 	//atualizar um campo do usuario
-	public void atualizarUsuario(Usuario usuario, int id, String campo) {
+	public void updateUsuario(Usuario usuario, int id, String campo) {
 		conexao = Conexao.conectar();
 		sql = "UPDATE usuario SET "+ campo + " = ? , modificado_em = now() WHERE id = " + id;
 
@@ -177,7 +177,7 @@ public class UsuarioDAO {
 	}
 
 	//deletar um usuario
-	public void detelarUsuario(int id) {
+	public void deleteUsuario(int id) {
 		conexao = Conexao.conectar();
 		sql = "DELETE FROM usuario WHERE id = ?";
 

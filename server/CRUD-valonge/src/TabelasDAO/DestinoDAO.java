@@ -19,7 +19,7 @@ public class DestinoDAO {
 	public void createDestino(Destino destino) {
 		sql = "INSERT INTO destino (detalhes, estado, "
 				+ "pais, img, cidade) VALUES "
-				+ "(?, ?, ?,?, ?, ?)";
+				+ "(?, ?, ?,?, ?)";
 		conexao = Conexao.conectar();
 		try(PreparedStatement pstm = conexao.prepareStatement(sql)){
 			pstm.setString(1, destino.getDetalhes());

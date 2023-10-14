@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Timestamp;
 
 import ClassesTabelas.Destino;
+import ClassesTabelas.Hospedagem;
 import ClassesTabelas.Usuario;
 import ClassesTabelas.Viagem;
 import Conexao.Conexao;
@@ -38,7 +39,7 @@ public class ViagemDAO {
 	}
 
 	public void readViagem() {
-		sql = "SELECT * FROM viagem A INNER JOIN usuario B ON A.id_usuario = B.id INNER JOIN destino C ON A.id_destino = C.id_destino";
+		sql = "SELECT * FROM viagem A INNER JOIN usuario B ON A.id_usuario = B.id INNER JOIN destino C ON A.id_destino = C.id_destino INNER JOIN hospedagem H ON H.id_hospedagem = D.id_destino";
 		conexao = Conexao.conectar();
 		ResultSet rset = null;
 		try (PreparedStatement pstm = conexao.prepareStatement(sql)) {
@@ -49,6 +50,7 @@ public class ViagemDAO {
 				Viagem viagem = new Viagem();
 				Destino destino = new Destino();
 				Usuario usuario = new Usuario();
+				Hospedagem hospedagem = new Hospedagem();
 
 				viagem.setId_viagem(rset.getInt("id_viagem"));
 				viagem.setObservacoes(rset.getString("observacoes"));
@@ -56,12 +58,14 @@ public class ViagemDAO {
 				viagem.setDesconto(rset.getInt("desconto"));
 				viagem.setDataEntrada(rset.getTimestamp("dataEntrada").toLocalDateTime());
 				viagem.setDataSaida(rset.getTimestamp("dataSaida").toLocalDateTime());
+				
 				destino.setId_destino(rset.getInt("id_destino"));
 				destino.setCidade(rset.getString("cidade"));
 				destino.setDetalhes(rset.getString("detalhes"));
 				destino.setEstado(rset.getString("estado"));
 				destino.setImg(rset.getString("img"));
 				destino.setPais(rset.getString("pais"));
+				
 				usuario.setId(rset.getInt("id"));
 				usuario.setNome(rset.getString("nome"));
 				usuario.setRg(rset.getString("rg"));
@@ -75,8 +79,16 @@ public class ViagemDAO {
 				usuario.setSenha(rset.getString("senha"));
 				usuario.setEmail(rset.getString("email"));
 				usuario.setTipoUsuario(rset.getString("tipoUsuario"));
+				
+				hospedagem.setId(rset.getInt("id_hospedagem"));
+				hospedagem.setEndereco(rset.getString("endereco"));
+				hospedagem.setNomeLocal(rset.getString("nomeLocal"));
+				hospedagem.setPrecoDiaria(rset.getDouble("precoDiaria"));
+				hospedagem.setDestino(destino);
+				
 				viagem.setDestino(destino);
 				viagem.setUsuario(usuario);
+				viagem.setHospedagem(hospedagem);
 
 				System.out.println(viagem.toString());
 			}

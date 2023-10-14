@@ -4,7 +4,7 @@ public class Hospedagem {
 	private int id;
 	private double precoDiaria;
 	private String endereco, nomeLocal;
-	private Viagem viagem;
+	private Destino destino;
 	
 	public double getPrecoDiaria() {
 		return precoDiaria;
@@ -30,12 +30,12 @@ public class Hospedagem {
 		this.nomeLocal = nomeLocal;
 	}
 
-	public Viagem getViagem() {
-		return viagem;
+	public Destino getDestino() {
+		return destino;
 	}
 
-	public void setViagem(Viagem viagem) {
-		this.viagem = viagem;
+	public void setDestino(Destino destino) {
+		this.destino = destino;
 	}
 
 	public int getId() {
@@ -44,6 +44,13 @@ public class Hospedagem {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "id: " + id + ", precoDiaria: " + precoDiaria + ", endereco: " + endereco + ", hospedagem: "
+				+ nomeLocal + ", destino: " + ", pais: " + destino.getPais() + ", cidade: " + destino.getCidade()
+				;
 	}
 
 	
