@@ -39,12 +39,19 @@ public class Main {
 			menuNumber = input.nextInt();
 			
 			switch (menuNumber) {
-			case 1: 
+			case 0:{
+				System.out.println("Saindo do Menu...");
+				input.close();
+				break;
+			}
+			case 1:{ 
 				SubMenu inserir = new SubMenu();
+				
 				inserir.insert();
 				break;
+			}
 			default:
-				throw new IllegalArgumentException("Unexpected value: " + menuNumber);
+				System.out.println("Numero incorreto");
 			}
 			
 			
@@ -60,7 +67,7 @@ public class Main {
 //	Destino destino = new Destino();
 //	destino.setCidade("Rio de Janeiro");
 //	destino.setDetalhes("O rio de janeiro continua lindo, o rio de janeiro continua sendo");
-//	destino.setEstado("Rio de Janeiro");
+//	destino.setEstado("Rio de Junior");
 //	destino.setId_destino(2);
 //	destino.setImg("https://brazilexpedition.com/wp-content/uploads/2021/09/Lagoa-Azul3-625x430.jpg");
 //	destino.setPais("Brasil");
