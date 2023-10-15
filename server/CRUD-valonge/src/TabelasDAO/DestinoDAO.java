@@ -61,15 +61,15 @@ public class DestinoDAO {
 			
 	}
 	
-	public void searchDestino(int id) {
+	public Destino searchDestino(int id) {
 		conexao = Conexao.conectar();
 		sql = "SELECT * FROM destino WHERE id_destino = " + id;
 		ResultSet rset = null;
+		Destino destino = new Destino();
 		try (PreparedStatement pstm = conexao.prepareStatement(sql)) {
 			rset = pstm.executeQuery();
 
 			while (rset.next()) {
-				Destino destino = new Destino();
 				destino.setId_destino(rset.getInt("id_destino"));
 				destino.setCidade(rset.getString("cidade"));
 				destino.setDetalhes(rset.getString("detalhes"));
@@ -77,12 +77,14 @@ public class DestinoDAO {
 				destino.setImg(rset.getString("img"));
 				destino.setPais(rset.getString("pais"));
 
-				System.out.println(destino.toString());
+				
 			}
 
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+		
+		return destino;
 	}
 	
 	public void updateDestino(Destino destino, int id, String campo) {
@@ -127,14 +129,14 @@ public class DestinoDAO {
 				}
 				}
 				
-				System.out.println("Destino " + destino.getCidade() + "Atualizado com sucesso");
+				System.out.println("Destino Atualizado com sucesso");
 
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 	}
 	
-	public void deteteDestino(int id) {
+	public void deleteDestino(int id) {
 		conexao = Conexao.conectar();
 		sql = "DELETE FROM destino WHERE id_destino = ?";
 

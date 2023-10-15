@@ -73,16 +73,17 @@ public class UsuarioDAO {
 			System.out.println(e.getMessage());
 		}
 	}
-	//buscar usuario através do id
-	public void searchUsuarios(int id) {
+
+	// buscar usuario através do id
+	public Usuario searchUsuarios(int id) {
 		conexao = Conexao.conectar();
 		sql = "SELECT * FROM usuario WHERE id = " + id;
 		ResultSet rset = null;
+		Usuario usuario = new Usuario();
 		try (PreparedStatement pstm = conexao.prepareStatement(sql)) {
 			rset = pstm.executeQuery();
 
 			while (rset.next()) {
-				Usuario usuario = new Usuario();
 				usuario.setId(rset.getInt("id"));
 				usuario.setNome(rset.getString("nome"));
 				usuario.setRg(rset.getString("rg"));
@@ -97,86 +98,93 @@ public class UsuarioDAO {
 				usuario.setEmail(rset.getString("email"));
 				usuario.setTipoUsuario(rset.getString("tipoUsuario"));
 
-				System.out.println(usuario.toString());
 			}
 
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+		
+		return usuario;
 	}
 
-	//atualizar um campo do usuario
+	// atualizar um campo do usuario
 	public void updateUsuario(Usuario usuario, int id, String campo) {
 		conexao = Conexao.conectar();
-		sql = "UPDATE usuario SET "+ campo + " = ? , modificado_em = now() WHERE id = " + id;
+		sql = "UPDATE usuario SET " + campo + " = ? , modificado_em = now() WHERE id = " + id;
 
 		try (PreparedStatement pstm = conexao.prepareStatement(sql)) {
 
-				switch (campo) {
-				case "nome": {
-					pstm.setString(1, usuario.getNome());
-					pstm.executeUpdate();
-					break;
-				}
-				case "rg": {
-					
-					pstm.setString(1, usuario.getRg());
-					pstm.executeUpdate();
-					break;
-				}
-				case "endereco": {
-					pstm.setString(1, usuario.getEndereco());
-					pstm.executeUpdate();
-					break;
-				}
-				case "cpf": {
-					
-					pstm.setString(1, usuario.getCpf());
-					pstm.executeUpdate();
-					break;
-				}
-				case "estado": {
-					
-					pstm.setString(1, usuario.getEstado());
-					pstm.executeUpdate();
-					break;
-				}
-				case "dataNascimento": {
-					
-					pstm.setTimestamp(1, Timestamp.valueOf(usuario.getDataNascimento().atStartOfDay()));
-					pstm.executeUpdate();
-					break;
-				}
-				case "telefone": {
-					
-					pstm.setString(1, usuario.getTelefone());
-					pstm.executeUpdate();
-					break;
-				}
-				case "email": {
-					
-					pstm.setString(1, usuario.getEmail());
-					pstm.executeUpdate();
-					break;
-				}
-				case "senha": {
-					
-					pstm.setString(1, usuario.getSenha());
-					pstm.executeUpdate();
-					break;
-				}
-				default:{
-					System.out.println("Opção incorreta");
-					break;
-				}
-				}
-				System.out.println("Usuário " + usuario.getNome() + " atualizado com sucesso");
+			switch (campo) {
+			case "nome": {
+				pstm.setString(1, usuario.getNome());
+				pstm.executeUpdate();
+				break;
+			}
+			case "rg": {
+
+				pstm.setString(1, usuario.getRg());
+				pstm.executeUpdate();
+				break;
+			}
+			case "endereco": {
+				pstm.setString(1, usuario.getEndereco());
+				pstm.executeUpdate();
+				break;
+			}
+			case "cpf": {
+
+				pstm.setString(1, usuario.getCpf());
+				pstm.executeUpdate();
+				break;
+			}
+			case "estado": {
+
+				pstm.setString(1, usuario.getEstado());
+				pstm.executeUpdate();
+				break;
+			}
+			case "dataNascimento": {
+
+				pstm.setTimestamp(1, Timestamp.valueOf(usuario.getDataNascimento().atStartOfDay()));
+				pstm.executeUpdate();
+				break;
+			}
+			case "telefone": {
+
+				pstm.setString(1, usuario.getTelefone());
+				pstm.executeUpdate();
+				break;
+			}
+			case "email": {
+
+				pstm.setString(1, usuario.getEmail());
+				pstm.executeUpdate();
+				break;
+			}
+			case "senha": {
+
+				pstm.setString(1, usuario.getSenha());
+				pstm.executeUpdate();
+				break;
+			}
+			case "tipoUsuario": {
+
+				pstm.setString(1, usuario.getTipoUsuario());
+				pstm.executeUpdate();
+				break;
+			}
+			default: {
+				System.out.println("Opção incorreta");
+				break;
+			}
+			}
+			System.out.println("Usuário atualizado com sucesso");
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 	}
 
-	//deletar um usuario
+	// deletar um usuario
 	public void deleteUsuario(int id) {
 		conexao = Conexao.conectar();
 		sql = "DELETE FROM usuario WHERE id = ?";
@@ -185,7 +193,7 @@ public class UsuarioDAO {
 
 			pstm.setInt(1, id);
 			pstm.execute();
-			
+
 			System.out.println("Usuário deletado com sucesso");
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());

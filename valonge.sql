@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 10-Out-2023 às 23:05
+-- Generation Time: 15-Out-2023 às 22:00
 -- Versão do servidor: 10.1.38-MariaDB
 -- versão do PHP: 5.6.40
 
@@ -22,6 +22,21 @@ SET time_zone = "+00:00";
 -- Database: `valonge`
 --
 
+DELIMITER $$
+--
+-- Functions
+--
+CREATE DEFINER=`root`@`localhost` FUNCTION `calculaPreco` (`desconto` INT, `preco` DECIMAL(10,2)) RETURNS DECIMAL(10,2) BEGIN
+ 
+                 RETURN preco - (desconto /100 * preco);
+END$$
+
+CREATE DEFINER=`root`@`localhost` FUNCTION `calculaPrecoTotal` (`desconto` INT, `preco` DECIMAL(10,2)) RETURNS DECIMAL(10,2) BEGIN 
+RETURN preco - (desconto /100 * preco); 
+END$$
+
+DELIMITER ;
+
 -- --------------------------------------------------------
 
 --
@@ -37,6 +52,14 @@ CREATE TABLE `contato` (
   `nome` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Extraindo dados da tabela `contato`
+--
+
+INSERT INTO `contato` (`id`, `email`, `data`, `mensagem`, `telefone`, `nome`) VALUES
+(2, 'kjsdfljfd', '2023-10-15 13:32:03', 'kap[ksdp', 'aksdkfsd', 'dfakpk'),
+(3, 'lkasjlçdfsd', '2023-10-15 13:32:08', 'çfodkoçdsfk', '5', 'fsdkp´çsk');
+
 -- --------------------------------------------------------
 
 --
@@ -48,10 +71,18 @@ CREATE TABLE `destino` (
   `detalhes` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
   `estado` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   `pais` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `img` varchar(250) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `cidade` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `possuiPromocao` tinyint(1) DEFAULT NULL
+  `img` text COLLATE utf8_unicode_ci,
+  `cidade` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `destino`
+--
+
+INSERT INTO `destino` (`id_destino`, `detalhes`, `estado`, `pais`, `img`, `cidade`) VALUES
+(1, 'Lindas paisagens', 'Rio grande do norte', 'Brasa', 'https://visit.natal.br/assets/img/galeria3-min.jpg', 'Natal'),
+(2, 'encatada pela wall street', 'New York', 'EUA', 'https://www.remessaonline.com.br/blog/wp-content/uploads/2022/06/morar-em-nova-york.jpg', 'New York '),
+(3, 'praias paradisíacas', 'Bahia', 'Brasil', 'https://rodoviariaonline.com.br/wp-content/uploads/2018/11/deseja-um-pouco-de-axe-confira-as-8-principais-praias-em-salvador.jpg', 'Salvador');
 
 -- --------------------------------------------------------
 
@@ -64,8 +95,16 @@ CREATE TABLE `hospedagem` (
   `nomeLocal` varchar(25) COLLATE utf8_unicode_ci DEFAULT NULL,
   `precoDiaria` decimal(10,2) DEFAULT NULL,
   `endereco` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `id_viagem` bigint(10) DEFAULT NULL
+  `id_destino` bigint(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `hospedagem`
+--
+
+INSERT INTO `hospedagem` (`id_hospedagem`, `nomeLocal`, `precoDiaria`, `endereco`, `id_destino`) VALUES
+(3, 'Hotel Paradise Resort', '300.00', 'rua da praia 123', 1),
+(4, 'Hotel bla bla ', '290.69', 'jhads kajsdklsda ikjds', 3);
 
 -- --------------------------------------------------------
 
@@ -86,7 +125,7 @@ CREATE TABLE `usuario` (
   `modificado_em` datetime NOT NULL,
   `senha` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   `email` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
-  `tipoUsuario` varchar(5) COLLATE utf8_unicode_ci NOT NULL
+  `tipoUsuario` varchar(6) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
@@ -95,10 +134,9 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`id`, `nome`, `rg`, `endereco`, `cpf`, `estado`, `dataNascimento`, `telefone`, `criado_em`, `modificado_em`, `senha`, `email`, `tipoUsuario`) VALUES
 (2, 'Maicon Nunes', '267625772', 'Rua Sambaitiba lt 21 qd 70', '12245465411', 'Rio de Janeiro', '1969-12-31', '2127596417', '2023-10-10 09:31:51', '2023-10-10 09:31:51', '123456789', 'mnunes315@hotmail.com', 'admin'),
-(3, 'Marli Nunes', '267625772', 'Rua Sambaitiba lt 21 qd 70', '12245465411', 'Rio de Janeiro', '1992-02-10', '2127596417', '2023-10-10 09:39:17', '2023-10-10 11:59:01', '123456789', 'mnunes315@hotmail.com', 'admin'),
 (4, 'Natalia Pereira', '267625772', 'Rua Sambaitiba lt 21 qd 70', '12245465411', 'Rio de Janeiro', '1995-05-29', '2127596417', '2023-10-10 09:40:52', '2023-10-10 09:40:52', '123456789', 'mnunes315@hotmail.com', 'admin'),
 (5, 'Marli Maria da Silva Nunes', '222222775', 'Rua 10 lt 21 qd 70', '25465542122', 'Rio de Janeiro', '1995-05-29', '2199999999', '2023-10-10 09:46:26', '2023-10-10 09:46:26', '987654321', 'mnunes315@gmail.com', 'user'),
-(6, 'Marli Maria da Silva Nunes', '222222775', 'Rua 10 lt 21 qd 70', '25465542122', 'Rio de Janeiro', '1995-05-29', '2199999999', '2023-10-10 10:35:45', '2023-10-10 10:35:45', '987654321', 'mnunes315@gmail.com', 'user');
+(6, 'Natália Pereira', '22256412', 'Rua da paz lote 15', '14891843764', 'Rio de Janeiro', '1995-05-29', '21964437980', '2023-10-10 10:35:45', '2023-10-14 17:10:31', '987654321', 'natalia@natalia.com', 'client');
 
 -- --------------------------------------------------------
 
@@ -113,8 +151,19 @@ CREATE TABLE `viagem` (
   `dataSaida` datetime DEFAULT NULL,
   `dataEntrada` datetime DEFAULT NULL,
   `id_destino` bigint(10) DEFAULT NULL,
-  `id` bigint(10) DEFAULT NULL
+  `id_usuario` bigint(10) DEFAULT NULL,
+  `precoTotal` decimal(10,2) DEFAULT NULL,
+  `preco` decimal(10,2) DEFAULT NULL,
+  `possuiHospedagem` binary(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Extraindo dados da tabela `viagem`
+--
+
+INSERT INTO `viagem` (`id_viagem`, `observacoes`, `desconto`, `dataSaida`, `dataEntrada`, `id_destino`, `id_usuario`, `precoTotal`, `preco`, `possuiHospedagem`) VALUES
+(1, 'não', 10, '2023-10-15 10:10:00', '2023-10-10 10:10:00', 3, 2, '1398.11', '100.00', 0x31),
+(2, 'gfh ', 10, '2023-10-15 10:10:00', '2023-10-10 10:10:00', 3, 6, '1398.11', '100.00', 0x31);
 
 --
 -- Indexes for dumped tables
@@ -137,7 +186,7 @@ ALTER TABLE `destino`
 --
 ALTER TABLE `hospedagem`
   ADD PRIMARY KEY (`id_hospedagem`),
-  ADD KEY `id_viagem` (`id_viagem`);
+  ADD KEY `fk_hospedagem` (`id_destino`);
 
 --
 -- Indexes for table `usuario`
@@ -150,8 +199,8 @@ ALTER TABLE `usuario`
 --
 ALTER TABLE `viagem`
   ADD PRIMARY KEY (`id_viagem`),
-  ADD KEY `id` (`id`),
-  ADD KEY `id_destino` (`id_destino`);
+  ADD KEY `id_destino` (`id_destino`),
+  ADD KEY `viagem_ibfk_1` (`id_usuario`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -161,19 +210,19 @@ ALTER TABLE `viagem`
 -- AUTO_INCREMENT for table `contato`
 --
 ALTER TABLE `contato`
-  MODIFY `id` bigint(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `destino`
 --
 ALTER TABLE `destino`
-  MODIFY `id_destino` bigint(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_destino` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `hospedagem`
 --
 ALTER TABLE `hospedagem`
-  MODIFY `id_hospedagem` bigint(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_hospedagem` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `usuario`
@@ -185,7 +234,7 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT for table `viagem`
 --
 ALTER TABLE `viagem`
-  MODIFY `id_viagem` bigint(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_viagem` bigint(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
@@ -195,13 +244,13 @@ ALTER TABLE `viagem`
 -- Limitadores para a tabela `hospedagem`
 --
 ALTER TABLE `hospedagem`
-  ADD CONSTRAINT `hospedagem_ibfk_1` FOREIGN KEY (`id_viagem`) REFERENCES `viagem` (`id_viagem`);
+  ADD CONSTRAINT `fk_hospedagem` FOREIGN KEY (`id_destino`) REFERENCES `destino` (`id_destino`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Limitadores para a tabela `viagem`
 --
 ALTER TABLE `viagem`
-  ADD CONSTRAINT `viagem_ibfk_1` FOREIGN KEY (`id`) REFERENCES `usuario` (`id`),
+  ADD CONSTRAINT `viagem_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuario` (`id`),
   ADD CONSTRAINT `viagem_ibfk_2` FOREIGN KEY (`id_destino`) REFERENCES `destino` (`id_destino`);
 COMMIT;
 

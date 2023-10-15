@@ -122,14 +122,14 @@ public class ContatoDAO {
 			}
 			}
 
-			System.out.println("Mensagem de  " + contato.getNome() + " Atualizado com sucesso");
+			System.out.println("Mensagem de  Atualizado com sucesso");
 
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 	}
 
-	public void deteteContato(int id) {
+	public void deleteContato(int id) {
 		conexao = Conexao.conectar();
 		sql = "DELETE FROM contato WHERE id = ?";
 

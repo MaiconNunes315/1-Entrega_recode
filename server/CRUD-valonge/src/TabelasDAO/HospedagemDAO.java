@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import ClassesTabelas.Destino;
 import ClassesTabelas.Hospedagem;
@@ -30,7 +32,7 @@ public class HospedagemDAO {
 	}
 
 	public void readHospedagem() {
-		sql = "SELECT * FROM hospedagem H INNER JOIN destino D ON H.id_hospedagem = D.id_destino";
+		sql = "SELECT * FROM hospedagem H INNER JOIN destino D ON H.id_destino = D.id_destino";
 		conexao = Conexao.conectar();
 		ResultSet rset = null;
 		try (PreparedStatement pstm = conexao.prepareStatement(sql)) {
@@ -60,17 +62,47 @@ public class HospedagemDAO {
 		}
 
 	}
-
-	public void searchHospedagem(int id) {
-		sql = "SELECT * FROM hospedagem H INNER JOIN destino D ON H.id_hospedagem = D.id_destino WHERE id_hospedagem = " + id;
+	
+	public List<Hospedagem> searchHospedagem_Destino(int id) {
+		sql = "SELECT * FROM hospedagem WHERE id_destino = " + id;
 		conexao = Conexao.conectar();
 		ResultSet rset = null;
+			List<Hospedagem> h = new ArrayList<>();
 		try (PreparedStatement pstm = conexao.prepareStatement(sql)) {
 
 			rset = pstm.executeQuery();
 			while (rset.next()) {
 
 				Hospedagem hospedagem = new Hospedagem();
+
+				hospedagem.setId(rset.getInt("id_hospedagem"));
+				hospedagem.setEndereco(rset.getString("endereco"));
+				hospedagem.setNomeLocal(rset.getString("nomeLocal"));
+				hospedagem.setPrecoDiaria(rset.getDouble("precoDiaria"));
+				Destino destino = new Destino();
+				destino.setId_destino(rset.getInt("id_destino"));
+				hospedagem.setDestino(destino);
+				h.add(hospedagem);
+
+			}
+		} catch (SQLException e) {
+			System.out.println(e.getMessage());
+		}
+		
+		return h;
+	}
+	
+
+	public Hospedagem searchHospedagem(int id) {
+		sql = "SELECT * FROM hospedagem H INNER JOIN destino D ON H.id_destino = D.id_destino WHERE id_hospedagem = " + id;
+		conexao = Conexao.conectar();
+		ResultSet rset = null;
+		Hospedagem hospedagem = new Hospedagem();
+		try (PreparedStatement pstm = conexao.prepareStatement(sql)) {
+
+			rset = pstm.executeQuery();
+			while (rset.next()) {
+
 				Destino destino = new Destino();
 
 				hospedagem.setId(rset.getInt("id_hospedagem"));
@@ -85,12 +117,15 @@ public class HospedagemDAO {
 				destino.setImg(rset.getString("img"));
 				destino.setPais(rset.getString("pais"));
 
-				System.out.println(hospedagem.toString());
+				
 			}
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
+		
+		return hospedagem;
 	}
+	
 
 	public void updateHospedagem(Hospedagem hospedagem, int id, String campo) {
 		conexao = Conexao.conectar();
@@ -128,14 +163,14 @@ public class HospedagemDAO {
 			}
 			}
 
-			System.out.println("Hospedagem em " + hospedagem.getNomeLocal() + "Atualizado com sucesso");
+			System.out.println("Hospedagem em Atualizado com sucesso");
 
 		} catch (SQLException e) {
 			System.out.println(e.getMessage());
 		}
 	}
 
-	public void deteteHospedagem(int id) {
+	public void deleteHospedagem(int id) {
 		conexao = Conexao.conectar();
 		sql = "DELETE FROM hospedagem WHERE id_hospedagem = ?";
 
