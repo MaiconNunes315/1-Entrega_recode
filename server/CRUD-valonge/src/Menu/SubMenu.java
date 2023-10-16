@@ -1,13 +1,11 @@
 package Menu;
 
-import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
-
 import ClassesTabelas.Contato;
 import ClassesTabelas.Destino;
 import ClassesTabelas.Hospedagem;
@@ -21,6 +19,7 @@ import TabelasDAO.ViagemDAO;
 
 public class SubMenu {
 
+	// atributos do sub menun
 	private Scanner inputStr = new Scanner(System.in);
 	private Scanner inputNumber = new Scanner(System.in);
 	private Usuario usuario = new Usuario();
@@ -34,12 +33,15 @@ public class SubMenu {
 	private ViagemDAO viagemDao = new ViagemDAO();
 	private ContatoDAO contatoDao = new ContatoDAO();
 
+	//metodo de inserir dados
 	public void insert() {
 
 		int subMenuNumber = 1;
 
+		//sub menun de inserir dados
 		while (subMenuNumber != 0) {
 			System.out.println(" ____________________________________________________________");
+			System.out.println("|                                                            |");
 			System.out.println("|       Em qual tabela deseja inserir novos dados ?          |");
 			System.out.println("|                [ 1 ] para Usuário                          |");
 			System.out.println("|                [ 2 ] para Destino                          |");
@@ -54,12 +56,13 @@ public class SubMenu {
 				System.out.println("Vontando para o menu anterior");
 				break;
 			}
+			//inseri dados do usuario
 			case 1: {
 
 				System.out.println("Digite o nome do usuário");
 				String nome = (inputStr.nextLine());
 				System.out.println("Digite o RG do usuário *somente numeros");
-				long rg = inputNumber.nextInt();
+				String rg = inputStr.nextLine();
 				System.out.println("Digite o endereço do usuário");
 				String endereco = inputStr.nextLine();
 				System.out.println("Digite o CPF do usuário *somente numeros");
@@ -90,7 +93,7 @@ public class SubMenu {
 					usuario.setTipoUsuario("client");
 				}
 
-				usuario.setRg(String.valueOf(rg));
+				usuario.setRg(rg);
 				usuario.setNome(nome);
 				usuario.setEndereco(endereco);
 				usuario.setCpf(cpf);
@@ -105,6 +108,7 @@ public class SubMenu {
 				usuarioDao.creatUsuario(usuario);
 				break;
 			}
+			// inserir dados do destino
 			case 2: {
 
 				System.out.println("Digite a cidade do destino");
@@ -121,6 +125,7 @@ public class SubMenu {
 				destinoDao.createDestino(destino);
 				break;
 			}
+			//inserir dados de  hospedagem
 			case 3: {
 
 				System.out.println("Digite o endereço do local de hospedagem");
@@ -137,6 +142,7 @@ public class SubMenu {
 
 				break;
 			}
+			// inserir daddos de hospedagem
 			case 4: {
 
 				String[] dataViagem = { "* Dia *", "* Mês *", "* Ano *", "* Hora *", "* Minuto *" };
@@ -203,7 +209,8 @@ public class SubMenu {
 						int idHospedagem = inputNumber.nextInt();
 						for (Hospedagem hh : hospedagemList) {
 							if (hh.getId() == idHospedagem) {
-								
+								hospedagem.setId(hh.getId());
+								viagem.setHospedagem(hh);
 								viagem.setPrecoDiaria(hh.getPrecoDiaria());
 							}
 						}
@@ -224,6 +231,7 @@ public class SubMenu {
 				viagemDao.createViagem(viagem);
 				break;
 			}
+			// inserir dados de contato
 			case 5: {
 
 				contato.setData(LocalDateTime.now());

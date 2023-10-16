@@ -46,8 +46,18 @@ public class Contato {
 	}
 	@Override
 	public String toString() {
-		return "id: " + id + ", email: " + email + ", mensagem: " + mensagem + ", telefone: " + telefone
-				+ ", nome: " + nome + ", data: " + data;
+		
+		Usuario usuario = new Usuario();
+
+		return "_______________________________________________________\n" 
+		+      "|Id: " + id + "\n" 
+			 + "|Nome: " + nome+ "\n" 
+		     + "|Telefone: " + telefone + "\n" 
+			 + "|Email: " + email + "\n" 
+		     + "|Mensagem: " + mensagem + "\n"
+		     + "|Data de modificação: "+ usuario.formatarData(data) + "\n"
+			 + "|_______________________________________________________";
+		
 	}
 	
 	

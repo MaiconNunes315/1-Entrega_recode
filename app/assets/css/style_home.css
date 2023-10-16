@@ -16,6 +16,9 @@ header {
 header img {
     width: 50px;
 }
+.style_link_hover{
+color:#90b8e6 !important;
+}
 
 .style_link_hover:hover {
 

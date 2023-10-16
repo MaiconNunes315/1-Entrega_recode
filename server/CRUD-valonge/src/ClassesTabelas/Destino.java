@@ -44,8 +44,15 @@ public class Destino {
 	
 	@Override
 	public String toString() {
-		return "id_destino: " + id_destino + ", detalhes: " + detalhes
-				+ ", estado: " + estado + ", img: " + img + ", pais: " + pais + ", cidade: " + cidade;
+		return "_______________________________________________________\n" 
+        +      "|Id: " + id_destino + "\n" 
+			 + "|Link da imagem: " + img+ "\n" 
+		     + "|Estado: " + estado + "\n" 
+		     + "|Cidade: " + cidade + "\n"
+			 + "|País: " + pais + "\n" 
+		     + "|Detalhes: " + detalhes+ "\n" 
+			 + "|_______________________________________________________";
+		
 	}
 	
 	

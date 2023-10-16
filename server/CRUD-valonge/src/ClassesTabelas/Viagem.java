@@ -5,6 +5,8 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
+import TabelasDAO.HospedagemDAO;
+
 public class Viagem {
 	private int id_viagem, desconto, possuiHospedagem;
 	private String observacoes;
@@ -128,11 +130,25 @@ public double subTotal() {
 	
 	@Override
 	public String toString() {
-		return "id_viagem: " + id_viagem + ", desconto: " + (desconto == 0 ? "Não possui desconto" : desconto +"%")   + ", observacoes: " + observacoes
-				+  ",\n nome do usuário: " + usuario.getNome() 
-				+ ",  saindo de: " + usuario.getEstado() + ", para " + destino.getCidade() + ", data ida: " + usuario.formatarData(dataEntrada) 
-				+ ",\n data volta: " + usuario.formatarData(dataSaida) + ", sub total: " + NumberFormat.getCurrencyInstance().format(subTotal())
-				+ ", total: " + NumberFormat.getCurrencyInstance().format(precoTotal);
+		
+		HospedagemDAO hosp = new HospedagemDAO();
+		String local = hosp.searchHospedagem(hospedagem.getId()).getNomeLocal();
+		
+		
+		return "_______________________________________________________\n" 
+		+      "|Id: " + id_viagem + "\n" 
+			 + "|Nome do cliente: " + usuario.getNome()+ "\n" 
+		     + "|Saindo de: " + usuario.getEstado() + "\n" 
+			 + "|Para: " + destino.getCidade() + "\n" 
+		     + "|Data de embarque: " + usuario.formatarData(dataEntrada) + "\n" 
+			 + "|Data de desembarque: " + usuario.formatarData(dataSaida)+ "\n" 
+		     + "|Desconto: " + (desconto == 0 ?"Não possui desconto" : desconto +"%")+"\n" 
+		     + "|Possui hospedagem: " + (possuiHospedagem == 1? " Sim \n"
+		     + "|Hospedagem: " + local : " Não") +"\n"
+			 + "|Sub total: " + NumberFormat.getCurrencyInstance().format(subTotal()) + "\n" 
+		     + "|Total: " + NumberFormat.getCurrencyInstance().format(precoTotal) + "\n"
+			 + "|Observações: " + observacoes + "\n" 
+			 + "|_______________________________________________________";
 	}
 	
 	

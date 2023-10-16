@@ -48,9 +48,16 @@ public class Hospedagem {
 
 	@Override
 	public String toString() {
-		return "id: " + id + ", precoDiaria: " + precoDiaria + ", endereco: " + endereco + ", hospedagem: "
-				+ nomeLocal + ", destino: " + ", pais: " + destino.getPais() + ", cidade: " + destino.getCidade()
-				;
+		
+		return "_______________________________________________________\n" 
+		+      "|Id: " + id + "\n" 
+			 + "|Nome do local: " + nomeLocal+ "\n" 
+		     + "|País: " + destino.getPais() + "\n" 
+			 + "|Estado: " + destino.getEstado() + "\n" 
+		     + "|Cidade: " +destino.getCidade() + "\n"  
+		     + "|Endereço: " + endereco + "\n" 
+			 + "|Preço da diária: " + precoDiaria + "\n" 
+			 + "|_______________________________________________________";
 	}
 
 	

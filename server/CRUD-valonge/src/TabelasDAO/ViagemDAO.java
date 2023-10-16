@@ -19,9 +19,9 @@ public class ViagemDAO {
 
 	public void createViagem(Viagem viagem) {
 		sql = "INSERT INTO viagem (observacoes, desconto, "
-				+ "dataEntrada, dataSaida,preco, id_destino, id_usuario, precoTotal, possuiHospedagem) VALUES "
+				+ "dataEntrada, dataSaida,preco, id_destino, id_usuario, precoTotal, possuiHospedagem,id_hospedagem) VALUES "
 
-				+ "(?, ?, ?,?, ?, ?,?,?,?)";
+				+ "(?, ?, ?,?, ?, ?,?,?,?,?)";
 		conexao = Conexao.conectar();
 		try (PreparedStatement pstm = conexao.prepareStatement(sql)) {
 			pstm.setString(1, viagem.getObservacoes());
@@ -33,6 +33,7 @@ public class ViagemDAO {
 			pstm.setInt(7, viagem.getUsuario().getId());
 			pstm.setDouble(8, viagem.calculaPrecoTotal());
 			pstm.setInt(9, viagem.getPossuiHospedagem());
+			pstm.setInt(10, viagem.getHospedagem().getId());
 			pstm.executeUpdate();
 
 			System.out.println("Viagem " + viagem.getDataEntrada() + " Cadastrado com sucesso");
@@ -53,7 +54,7 @@ public class ViagemDAO {
 				Viagem viagem = new Viagem();
 				Destino destino = new Destino();
 				Usuario usuario = new Usuario();
-				// Hospedagem hospedagem = new Hospedagem();
+				Hospedagem hospedagem = new Hospedagem();
 
 				viagem.setId_viagem(rset.getInt("id_viagem"));
 				viagem.setObservacoes(rset.getString("observacoes"));
@@ -84,7 +85,7 @@ public class ViagemDAO {
 				usuario.setEmail(rset.getString("email"));
 				usuario.setTipoUsuario(rset.getString("tipoUsuario"));
 
-//				hospedagem.setId(rset.getInt("id_hospedagem"));
+				hospedagem.setId(rset.getInt("id_hospedagem"));
 //				hospedagem.setEndereco(rset.getString("endereco"));
 //				hospedagem.setNomeLocal(rset.getString("nomeLocal"));
 //				hospedagem.setPrecoDiaria(rset.getDouble("precoDiaria"));
@@ -92,7 +93,7 @@ public class ViagemDAO {
 
 				viagem.setDestino(destino);
 				viagem.setUsuario(usuario);
-				// viagem.setHospedagem(hospedagem);
+				viagem.setHospedagem(hospedagem);
 
 				System.out.println(viagem.toString());
 			}
