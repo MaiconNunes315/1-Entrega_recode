@@ -34,7 +34,16 @@ Segundo diretório é uma página web criada apenas com HTML, CSS e Bootstrap co
 ## Recursos
  * Interface intuitiva e amigável.
  * Navegação por páginas pelo cabeçalho e pelo rodapé.
- 
+
+## Modelagem de dados
+![print]()
+
+## UML de classes
+![print](modelagem_dados/UML.png)
+
+## Backend Java
+ * Criação de um menu intuitivo para interação com o CRUD da aplicação.
+ * Usando JDBC e MySQL.
 ## Utilização
 1. Clone o repositório para o seu ambiente local.
 
